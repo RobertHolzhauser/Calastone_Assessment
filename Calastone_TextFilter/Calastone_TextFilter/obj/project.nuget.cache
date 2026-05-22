@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "dgSpecHash": "A1dkD0H7Agc=",
+  "success": true,
+  "projectFilePath": "C:\\Robert\\DEV\\Calastone_Candidate\\Calastone_Assessment\\Calastone_TextFilter\\Calastone_TextFilter\\Calastone_TextFilter.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\histo\\.nuget\\packages\\microsoft.dotnet.ilcompiler\\10.0.8\\microsoft.dotnet.ilcompiler.10.0.8.nupkg.sha512",
+    "C:\\Users\\histo\\.nuget\\packages\\microsoft.net.illink.tasks\\10.0.8\\microsoft.net.illink.tasks.10.0.8.nupkg.sha512",
+    "C:\\Users\\histo\\.nuget\\packages\\runtime.win-x64.microsoft.dotnet.ilcompiler\\10.0.8\\runtime.win-x64.microsoft.dotnet.ilcompiler.10.0.8.nupkg.sha512",
+    "C:\\Users\\histo\\.nuget\\packages\\system.collections.nongeneric\\4.3.0\\system.collections.nongeneric.4.3.0.nupkg.sha512",
+    "C:\\Users\\histo\\.nuget\\packages\\runtime.win-x64.microsoft.dotnet.ilcompiler\\10.0.8\\runtime.win-x64.microsoft.dotnet.ilcompiler.10.0.8.nupkg.sha512",
+    "C:\\Users\\histo\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\10.0.8\\microsoft.aspnetcore.app.runtime.win-x64.10.0.8.nupkg.sha512",
+    "C:\\Users\\histo\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\10.0.8\\microsoft.windowsdesktop.app.runtime.win-x64.10.0.8.nupkg.sha512",
+    "C:\\Users\\histo\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\10.0.8\\microsoft.netcore.app.runtime.win-x64.10.0.8.nupkg.sha512",
+    "C:\\Users\\histo\\.nuget\\packages\\microsoft.netcore.app.runtime.nativeaot.win-x64\\10.0.8\\microsoft.netcore.app.runtime.nativeaot.win-x64.10.0.8.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1510",
+      "level": "Warning",
+      "message": "PackageReference System.Collections.NonGeneric will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary.",
+      "projectPath": "C:\\Robert\\DEV\\Calastone_Candidate\\Calastone_Assessment\\Calastone_TextFilter\\Calastone_TextFilter\\Calastone_TextFilter.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Robert\\DEV\\Calastone_Candidate\\Calastone_Assessment\\Calastone_TextFilter\\Calastone_TextFilter\\Calastone_TextFilter.csproj",
+      "libraryId": "System.Collections.NonGeneric",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+C:\Robert\DEV\Calastone_Candidate\Calastone_Assessment\Calastone_TextFilter\Calastone_TextFilter\bin\Debug\net10.0\Calastone_TextFilter.exe
+C:\Robert\DEV\Calastone_Candidate\Calastone_Assessment\Calastone_TextFilter\Calastone_TextFilter\bin\Debug\net10.0\Calastone_TextFilter.deps.json
+C:\Robert\DEV\Calastone_Candidate\Calastone_Assessment\Calastone_TextFilter\Calastone_TextFilter\bin\Debug\net10.0\Calastone_TextFilter.runtimeconfig.json
+C:\Robert\DEV\Calastone_Candidate\Calastone_Assessment\Calastone_TextFilter\Calastone_TextFilter\bin\Debug\net10.0\Calastone_TextFilter.dll
+C:\Robert\DEV\Calastone_Candidate\Calastone_Assessment\Calastone_TextFilter\Calastone_TextFilter\bin\Debug\net10.0\Calastone_TextFilter.pdb
+C:\Robert\DEV\Calastone_Candidate\Calastone_Assessment\Calastone_TextFilter\Calastone_TextFilter\obj\Debug\net10.0\Calastone_TextFilter.GeneratedMSBuildEditorConfig.editorconfig
+C:\Robert\DEV\Calastone_Candidate\Calastone_Assessment\Calastone_TextFilter\Calastone_TextFilter\obj\Debug\net10.0\Calastone_TextFilter.AssemblyInfoInputs.cache
+C:\Robert\DEV\Calastone_Candidate\Calastone_Assessment\Calastone_TextFilter\Calastone_TextFilter\obj\Debug\net10.0\Calastone_TextFilter.AssemblyInfo.cs
+C:\Robert\DEV\Calastone_Candidate\Calastone_Assessment\Calastone_TextFilter\Calastone_TextFilter\obj\Debug\net10.0\Calastone_TextFilter.csproj.CoreCompileInputs.cache
+C:\Robert\DEV\Calastone_Candidate\Calastone_Assessment\Calastone_TextFilter\Calastone_TextFilter\obj\Debug\net10.0\Calastone_TextFilter.sourcelink.json
+C:\Robert\DEV\Calastone_Candidate\Calastone_Assessment\Calastone_TextFilter\Calastone_TextFilter\obj\Debug\net10.0\Calastone_TextFilter.dll
+C:\Robert\DEV\Calastone_Candidate\Calastone_Assessment\Calastone_TextFilter\Calastone_TextFilter\obj\Debug\net10.0\refint\Calastone_TextFilter.dll
+C:\Robert\DEV\Calastone_Candidate\Calastone_Assessment\Calastone_TextFilter\Calastone_TextFilter\obj\Debug\net10.0\Calastone_TextFilter.pdb
+C:\Robert\DEV\Calastone_Candidate\Calastone_Assessment\Calastone_TextFilter\Calastone_TextFilter\obj\Debug\net10.0\Calastone_TextFilter.genruntimeconfig.cache
+C:\Robert\DEV\Calastone_Candidate\Calastone_Assessment\Calastone_TextFilter\Calastone_TextFilter\obj\Debug\net10.0\ref\Calastone_TextFilter.dll
