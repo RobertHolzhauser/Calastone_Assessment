@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Calastone_TextFilter/Calastone_TextFilter.csproj" />
+  <Project Path="TextFilter.Tests/TextFilter.Tests.csproj" Id="79ae2b02-5515-43a5-84b9-44b32e4ac833" />
+</Solution>
