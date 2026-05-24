@@ -7,7 +7,14 @@ namespace Calastone_TextFilter.Models
 {
     public class MidChars
     {
-        public int midCharPosition = -1;
+        
         public char midChar;
+        public int midCharPosition = 0;
+
+        public MidChars(char aMidChar, int pos) 
+        { 
+            midCharPosition = pos;
+            midChar = aMidChar;
+        }
     }
 }
