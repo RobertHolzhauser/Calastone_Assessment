@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Calastone_TextFilter.Interfaces
+namespace TextFilter.Interfaces
 {
-    internal interface IFileReader
+    public interface IFileReader
     {
         string Read(string path);
     }

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Calastone_TextFilter.Models;
+using TextFilter.Models;
 
-namespace Calastone_TextFilter.Interfaces
+namespace TextFilter.Interfaces
 {
-    internal interface IinterogationService
+    public interface IinterogationService
     {
         InterogatedWord Interogate(string word);
     }

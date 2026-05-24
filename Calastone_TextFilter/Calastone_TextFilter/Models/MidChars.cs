@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Collections;
 
-namespace Calastone_TextFilter.Models
+namespace TextFilter.Models
 {
     public class MidChars
     {

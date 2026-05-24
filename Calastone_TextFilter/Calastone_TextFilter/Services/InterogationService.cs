@@ -1,13 +1,13 @@
-﻿using Calastone_TextFilter.Interfaces;
-using Calastone_TextFilter.Models;
+﻿using TextFilter.Interfaces;
+using TextFilter.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Calastone_TextFilter.Services
+namespace TextFilter.Services
 {
-    internal class InterogationService : IinterogationService
+    public class InterogationService : IinterogationService
     {
        
          /***

@@ -1,10 +1,10 @@
-﻿using Calastone_TextFilter.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;
+using TextFilter.Interfaces;
 
-namespace Calastone_TextFilter.Filters
+namespace TextFilter.Filters
 {
     public class Filter1: ITextFilter
     {

@@ -1,11 +1,11 @@
 ﻿using System.Text;
 using System.Text.RegularExpressions;
-using Calastone_TextFilter.Models;
-using Calastone_TextFilter.Filters;
-using Calastone_TextFilter.Interfaces;
-using Calastone_TextFilter.Services;
+using TextFilter.Models;
+using TextFilter.Filters;
+using TextFilter.Interfaces;
+using TextFilter.Services;
 
-namespace Calastone_TextFilter.Main
+namespace TextFilter.Main
 {
     public class App
     {

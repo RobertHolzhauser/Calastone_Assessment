@@ -1,9 +1,9 @@
-﻿using Calastone_TextFilter.Interfaces;
+﻿using TextFilter.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Calastone_TextFilter.Filters
+namespace TextFilter.Filters
 {
     public class Filter2: ITextFilter
     {

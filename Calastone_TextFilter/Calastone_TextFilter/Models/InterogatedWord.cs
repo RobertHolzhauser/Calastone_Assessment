@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Calastone_TextFilter.Models
+namespace TextFilter.Models
 {
     /***
      * Interrogated word implies a word that HAS NOT YET been filtered, 

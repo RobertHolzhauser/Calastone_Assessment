@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-using Calastone_TextFilter.Interfaces;
+using TextFilter.Interfaces;
 
-namespace Calastone_TextFilter.Services
+namespace TextFilter.Services
 {
-    internal class FileReader : IFileReader
+    public class FileReader : IFileReader
     {
         public string Read(string filepath) 
         {

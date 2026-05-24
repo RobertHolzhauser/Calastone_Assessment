@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Calastone_TextFilter.Interfaces
+namespace TextFilter.Interfaces
 {
     internal interface ITextFilter
     {

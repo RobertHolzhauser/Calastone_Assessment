@@ -1,11 +1,11 @@
 ﻿using System.Collections;
-using Calastone_TextFilter.Interfaces;
-using Calastone_TextFilter.Main;
-using Calastone_TextFilter.Services;
-using Calastone_TextFilter.Filters;
+using TextFilter.Interfaces;
+using TextFilter.Main;
+using TextFilter.Services;
+using TextFilter.Filters;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Calastone_TextFilter
+namespace TextFilter
 {
     internal class Program
     {
@@ -33,48 +33,14 @@ namespace Calastone_TextFilter
             services.AddScoped<ITextFilter, Filter2>();
             services.AddScoped<ITextFilter, Filter3>();
             var provider = services.BuildServiceProvider(new ServiceProviderOptions { ValidateOnBuild = true });  // catch missing registrations at startup, rather than runtime
+            using var scope = provider.CreateScope();
 
+            var interogation = scope.ServiceProvider.GetRequiredService<IinterogationService>();
+            var reader = scope.ServiceProvider.GetRequiredService<IFileReader>();
 
-            var app = new App(filepath, keepPunctuation);
+            var app = new App(filepath, keepPunctuation, interogation, reader);
             app.Run();
-            /*
-            try
-            {
-                // Open the text file using a stream reader.
-                using StreamReader reader = new(filepath);
-
-                // Read the stream as a string.
-                string text = reader.ReadToEnd();
-
-                // clean any leading or trailing whitespace
-                text = text.Trim();
-
-                var txtArray = text.Split(' ');
-
-                foreach (var txt in txtArray)
-                {
-                    Console.WriteLine(txt);  // TODO remove
-
-                    InterogatedWord interogatedWord = Interogate(txt);  // TODO  move this to app
-                    interogatedWord.OriginalWord = txt;
-
-
-
-
-                }
-
-
-                // Write the text to the console.
-                Console.WriteLine(text);
-            }
-            catch (IOException e)
-            {
-                Console.WriteLine("The file could not be read:");
-                Console.WriteLine(e.Message);
-            }
-            */
         }
-
-       
+         
     }
 }
