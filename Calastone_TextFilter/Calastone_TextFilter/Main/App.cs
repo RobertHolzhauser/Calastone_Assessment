@@ -10,17 +10,26 @@ namespace TextFilter.Main
     public class App
     {
         private readonly string _filePath;
-        private readonly bool _keepPunctuation;
+        private readonly string _punctuationHandle;
         private readonly IinterogationService _interogationService;
         private readonly IFileReader _reader;
+        private readonly IFilterFactory _filterFactory;
+        private readonly ITextFilter _filter1;
+        private readonly ITextFilter _filter2;
+        private readonly ITextFilter _filter3;
 
         // constructor
-        public App(string filepath, bool keepPunctuation, IinterogationService interogation, IFileReader reader)
+        public App(string filepath, string punctuationHandle, IinterogationService interogation, IFileReader reader, IFilterFactory FilterFactory )
         {
             _filePath = filepath;
-            _keepPunctuation = keepPunctuation;
+            _punctuationHandle = punctuationHandle;
             _interogationService = interogation;
             _reader = reader;
+            _filterFactory = FilterFactory;
+            _filter1 = _filterFactory.Create("Filter1");
+            _filter2 = _filterFactory.Create("Filter2");
+            _filter3 = _filterFactory.Create("Filter3");
+            Console.WriteLine("Finished App instantiation.");
         }
         
         public void Run() 
@@ -35,18 +44,28 @@ namespace TextFilter.Main
 
                 var txtArray = text.Split(' ');
 
+                StringBuilder finalTextBuilder = new StringBuilder();  // string builder is more efficient than 
+                
                 foreach (var txt in txtArray)
                 {
                     Console.WriteLine(txt);  // TODO remove
 
-                    InterogatedWord interogatedWord = _interogationService.Interogate(txt); 
-                    interogatedWord.OriginalWord = txt;
+                    InterrogatedWord interogatedWord = new InterrogatedWord(txt);
+                    if (_punctuationHandle == "interogate") 
+                    { 
+                        interogatedWord = _interogationService.Interogate(txt);   // TODO add other handlings as implementation of IinterogationService
+                    }
 
+                    var interogatedWord_phase1 = _filter1.Filter(interogatedWord);
+                    var interogatedWord_phase2 = _filter2.Filter(interogatedWord_phase1);
+                    var interogatedWord_phase3 = _filter3.Filter(interogatedWord_phase2);
+                    finalTextBuilder.Append(interogatedWord_phase3.CleanedWord);
                 }
 
+                string finalText = finalTextBuilder.ToString();
 
                 // Write the text to the console.
-                Console.WriteLine(text);
+                Console.WriteLine(finalText);
             }
             catch (IOException e)
             {

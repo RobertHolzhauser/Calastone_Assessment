@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;
 using TextFilter.Interfaces;
+using TextFilter.Models;
 
 namespace TextFilter.Filters
 {
@@ -10,15 +11,16 @@ namespace TextFilter.Filters
     {
 
         string[] Vowels = { "A", "a", "E", "e", "I", "i", "O", "o", "U", "u" };
+        public string FilterName { get; set; } = "Filter1";
         /***
          * Filter1 filters out words that contain a vowel in the middle1 or 2 characters of the word
          **/
-        public string Filter(string text)
+        public InterrogatedWord Filter(InterrogatedWord word)
         {
-            if (text == null) return "";            
-            int pos = FindMiddlePosition(text);
+            if (word == null) return new InterrogatedWord();            
+            int pos = FindMiddlePosition(word.OriginalWord);
             string parity = CheckOddEven(pos);      // even means we check the middle two characters
-            string middleChars = FindMiddleChars(text, parity, pos);
+            string middleChars = FindMiddleChars(word.OriginalWord, parity, pos);
 
             foreach (char ch in middleChars) 
             {
@@ -29,7 +31,9 @@ namespace TextFilter.Filters
                 }
             }
             int afterMidPos = pos + middleChars.Length + 1;
-            return text.Substring(0, pos).Concat(middleChars).Concat(text.Substring(afterMidPos, text.Length -1)).ToString();
+            word.CleanedWord = word.OriginalWord.Substring(0, pos).Concat(middleChars)
+                    .Concat(word.OriginalWord.Substring(afterMidPos, word.OriginalWord.Length -1)).ToString()!;
+            return word;
         }
 
         int FindMiddlePosition(string text)
