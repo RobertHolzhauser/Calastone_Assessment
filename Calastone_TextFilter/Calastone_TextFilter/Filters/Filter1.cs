@@ -26,29 +26,23 @@ namespace TextFilter.Filters
                 if (myLen > 0)
                 {
                     int pos = FindMiddlePosition(word.OriginalWord);
-                    Console.WriteLine("filter 1 - originalWord = " + word.OriginalWord + "  - pos = " + pos + " myLen = " + myLen);
                     string parity = CheckOddEven(myLen);
-                    Console.WriteLine("filter 1 - parity = " + parity);
                     string middleChars = "";
 
 
                     if (myLen > 2)
                     {
                         middleChars = FindMiddleChars(word.OriginalWord, parity, pos);
-                        Console.WriteLine("filter 1 - middleChars = " + middleChars);
                         foreach (char ch in middleChars)
                         {
                             if (Vowels.Contains(ch.ToString()))
                             {
-                                //middleChars = "";
                                 word.CleanedWord = "";
-                                Console.WriteLine("Removed word: " + word.OriginalWord);
                                 return word;
                             }
                         }
                     }
 
-                    Console.WriteLine("Cleaned Word = " + word.CleanedWord);
                 }
             } catch (Exception ex) 
             { 

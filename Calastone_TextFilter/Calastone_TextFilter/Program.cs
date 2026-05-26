@@ -14,7 +14,7 @@ namespace TextFilter
         /***
          * TextFiler App
          * we get the path to the input file from args[0]
-         * args[1] = optional parameter to ignore, count puncuation as char, disgard (delete), or interogate punctuation to keep it.  
+         * *** NOT FULLY IMPLEMENTED args[1] = optional parameter to ignore, count puncuation as char, disgard (delete), or interogate punctuation to keep it.  
          *   the default behavior is to count punctuation as char.  // TODO review implmentation
          * We might want to create a help menu for the parameters
          **/
@@ -22,7 +22,7 @@ namespace TextFilter
         {
 
             if (args.Length == 0) { throw new ArgumentNullException("File Path is missing"); }
-            Console.WriteLine($"The input file path is {args[0]}");
+            //Console.WriteLine($"The input file path is {args[0]}");
 
             string filepath = args[0];
             string punctuationHandle = "count";   // ignore will skip over punctuation - not counting it as
@@ -30,6 +30,7 @@ namespace TextFilter
             {
                 switch (args[1]) 
                 {
+                    /***  not fully implemented
                     case "disgard":
                         punctuationHandle = "discard";  // this will delete punctuation
                         break;
@@ -39,25 +40,14 @@ namespace TextFilter
                     case "interrogate":
                         punctuationHandle = "interrogate";
                         break;
+                    **/
                     default:
                         punctuationHandle = "count";   // default counts punctuation as letters
                         break;
                 }
             }
 
-            Console.WriteLine("punctuationHandle = " + punctuationHandle);
-
             // set up dependency injection
-            //var services = new ServiceCollection();
-            //services.AddScoped<IinterogationService, InterrogationService>();
-            //services.AddScoped<IFileReader, FileReader>();
-            //services.AddSingleton<Func<IEnumerable<ITextFilter>>>
-            //        (x => () => x.GetService<IEnumerable<ITextFilter>>()!);
-            //services.AddSingleton<IFilterFactory, FilterFactory>();
-            //services.AddScoped<ITextFilter, Filter1>();
-            //services.AddScoped<ITextFilter, Filter2>();
-            //services.AddScoped<ITextFilter, Filter3>();
-
             var services = new ServiceCollection().AddTextFilterServices();
 
             var provider = services.BuildServiceProvider(new ServiceProviderOptions { ValidateOnBuild = true });  // catch missing registrations at startup, rather than runtime

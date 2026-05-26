@@ -20,7 +20,6 @@ namespace TextFilter.Filters
             if (word.CleanedWord.Length < 3) 
                 word.CleanedWord = "";
 
-            Console.WriteLine("Filter2" + word.CleanedWord);
             return word;
         }
     }

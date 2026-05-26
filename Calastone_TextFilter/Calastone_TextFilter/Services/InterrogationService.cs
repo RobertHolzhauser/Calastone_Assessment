@@ -22,7 +22,6 @@ namespace TextFilter.Services
 
             StringBuilder preStringBuilder = new StringBuilder();
             StringBuilder postStringBuilder = new StringBuilder();
-            //StringBuilder newWordStringBuilder = new StringBuilder();  TODO remove
 
 
             int len = word.Length;   // placed in a variable outside of for loop to avoid re-calc with every iteration

@@ -25,7 +25,6 @@ namespace TextFilter.Filters
                 word.CleanedWord = word.OriginalWord;
             }
 
-            Console.WriteLine("Completed Filter 3");
             return word;
         }
     }
