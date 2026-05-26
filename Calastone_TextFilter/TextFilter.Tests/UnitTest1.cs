@@ -3,19 +3,13 @@ using Moq;
 using System.Security.Cryptography.X509Certificates;
 using TextFilter.Extensions;
 using TextFilter.Factories;
-using TextFilter.Factories;
 using TextFilter.Filters;
-using TextFilter.Filters;
-using TextFilter.Interfaces;
 using TextFilter.Interfaces;
 using TextFilter.Models;
-using TextFilter.Services;
-
 
 namespace TextFilter.Tests
 {
     
-
     public class FilterTests
     {
         private readonly IFilterFactory _filterFactory;
@@ -84,6 +78,7 @@ namespace TextFilter.Tests
         {
             // Arrange 
             var services = new ServiceCollection().AddTextFilterServices();
+            string result = "";
             var filterFactory = services.BuildServiceProvider().GetRequiredService<IFilterFactory>();
             var filter3 = filterFactory.Create(1);
             InterrogatedWord word = new InterrogatedWord(txt);
@@ -94,7 +89,7 @@ namespace TextFilter.Tests
 
 
             // Assert
-            Assert.Equal(word.CleanedWord,"");
+            Assert.Equal(Tested.CleanedWord, result);
         }
 
         [Theory]
@@ -114,28 +109,30 @@ namespace TextFilter.Tests
             var Tested = filter3.Filter(word);
 
             // Assert
-            Assert.Equal(word.CleanedWord,txt);
+            Assert.Equal(Tested.CleanedWord,txt);
         }
 
         [Theory]
         [InlineData("Robert")]
-        [InlineData("The")]
-        [InlineData("integer")]
-        [InlineData("talent")]
-        [InlineData("smart")]
+        [InlineData("html")]
+        [InlineData("that")]
+       // [InlineData("This")]  -- spec specifies "t"
+        [InlineData("method")]
+        [InlineData("eat")]
         public void Filter3_RemoveWordsWithT(string txt)
         {
             // Arrange 
+            string result = "";
             var services = new ServiceCollection().AddTextFilterServices();
             var filterFactory = services.BuildServiceProvider().GetRequiredService<IFilterFactory>();
-            var filter3 = filterFactory.Create(1);
+            var filter3 = filterFactory.Create(2);  // run seq = 2
             InterrogatedWord word = new InterrogatedWord(txt);
 
             // Act
             var Tested = filter3.Filter(word);
 
             // Assert
-            Assert.Equal(word.CleanedWord,"");
+            Assert.Equal(Tested.CleanedWord,result);
         }
 
         [Theory]
@@ -156,9 +153,55 @@ namespace TextFilter.Tests
             var Tested = filter3.Filter(word);
 
             // Assert
-            Assert.Equal(word.CleanedWord,txt);
+            Assert.Equal(Tested.CleanedWord,txt);
         }
 
+
+        [Theory]
+        [InlineData("ate")]
+        [InlineData("inner")]
+        [InlineData("Extra")]
+        [InlineData("POWER")]
+        [InlineData("Arthur")]
+        [InlineData("the")]
+        public void Filter1_KeepWordsWithoutCenterVowel(string txt)
+        {
+            // Arrange 
+            var services = new ServiceCollection().AddTextFilterServices();
+            var filterFactory = services.BuildServiceProvider().GetRequiredService<IFilterFactory>();
+            var filter1 = filterFactory.Create(3);
+            InterrogatedWord word = new InterrogatedWord(txt);
+
+            // Act
+            var Tested = filter1.Filter(word);
+
+            // Assert
+            Assert.Equal(Tested.CleanedWord, txt);
+        }
+
+        [Theory]
+        [InlineData("this")]
+        [InlineData("sit")]
+        [InlineData("visual")]
+        [InlineData("love")]
+        [InlineData("FOOD")]
+        [InlineData("Fourth")]
+        [InlineData("Holzhauser")]
+        public void Filter1_RemoveWordsWithCenterVowel(string txt)
+        {
+            // Arrange 
+            string result = "";
+            var services = new ServiceCollection().AddTextFilterServices();
+            var filterFactory = services.BuildServiceProvider().GetRequiredService<IFilterFactory>();
+            var filter1 = filterFactory.Create(3);
+            InterrogatedWord word = new InterrogatedWord(txt);
+
+            // Act
+            var Tested = filter1.Filter(word);
+
+            // Assert
+            Assert.Equal(Tested.CleanedWord, result);
+        }
 
 
 
