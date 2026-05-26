@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System.Collections;
+using TextFilter.Extensions;
 using TextFilter.Factories;
 using TextFilter.Filters;
 using TextFilter.Interfaces;
@@ -47,15 +48,17 @@ namespace TextFilter
             Console.WriteLine("punctuationHandle = " + punctuationHandle);
 
             // set up dependency injection
-            var services = new ServiceCollection();
-            services.AddScoped<IinterogationService, InterrogationService>();
-            services.AddScoped<IFileReader, FileReader>();
-            services.AddSingleton<Func<IEnumerable<ITextFilter>>>
-                    (x => () => x.GetService<IEnumerable<ITextFilter>>()!);
-            services.AddSingleton<IFilterFactory, FilterFactory>();
-            services.AddScoped<ITextFilter, Filter1>();
-            services.AddScoped<ITextFilter, Filter2>();
-            services.AddScoped<ITextFilter, Filter3>();
+            //var services = new ServiceCollection();
+            //services.AddScoped<IinterogationService, InterrogationService>();
+            //services.AddScoped<IFileReader, FileReader>();
+            //services.AddSingleton<Func<IEnumerable<ITextFilter>>>
+            //        (x => () => x.GetService<IEnumerable<ITextFilter>>()!);
+            //services.AddSingleton<IFilterFactory, FilterFactory>();
+            //services.AddScoped<ITextFilter, Filter1>();
+            //services.AddScoped<ITextFilter, Filter2>();
+            //services.AddScoped<ITextFilter, Filter3>();
+
+            var services = new ServiceCollection().AddTextFilterServices();
 
             var provider = services.BuildServiceProvider(new ServiceProviderOptions { ValidateOnBuild = true });  // catch missing registrations at startup, rather than runtime
             using var scope = provider.CreateScope();
