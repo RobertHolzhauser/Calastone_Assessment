@@ -9,5 +9,6 @@ namespace TextFilter.Interfaces
     {
         InterrogatedWord Filter(InterrogatedWord word);
         string FilterName { get; set; }
+        int sequence { get; set; }
     }
 }

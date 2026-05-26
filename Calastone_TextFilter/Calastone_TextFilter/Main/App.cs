@@ -14,9 +14,9 @@ namespace TextFilter.Main
         private readonly IinterogationService _interogationService;
         private readonly IFileReader _reader;
         private readonly IFilterFactory _filterFactory;
-        private readonly ITextFilter _filter1;
-        private readonly ITextFilter _filter2;
-        private readonly ITextFilter _filter3;
+        private readonly ITextFilter _filterSeq1;
+        private readonly ITextFilter _filterSeq2;
+        private readonly ITextFilter _filterSeq3;
 
         // constructor
         public App(string filepath, string punctuationHandle, IinterogationService interogation, IFileReader reader, IFilterFactory FilterFactory )
@@ -26,9 +26,11 @@ namespace TextFilter.Main
             _interogationService = interogation;
             _reader = reader;
             _filterFactory = FilterFactory;
-            _filter1 = _filterFactory.Create("Filter1");
-            _filter2 = _filterFactory.Create("Filter2");
-            _filter3 = _filterFactory.Create("Filter3");
+           
+            _filterSeq1 = _filterFactory.Create(1);  // optimized sequence = filter 3 runs first  
+            _filterSeq2 = _filterFactory.Create(2);  //  filter 2 runs second 
+            _filterSeq3 = _filterFactory.Create(3);  //  filter 1 runs last to avoid running more complex logic when not necessary
+
             Console.WriteLine("Finished App instantiation.");
         }
         
@@ -51,19 +53,32 @@ namespace TextFilter.Main
                     Console.WriteLine(txt);  // TODO remove
 
                     InterrogatedWord interogatedWord = new InterrogatedWord(txt);
-                    if (_punctuationHandle == "interogate") 
+                    if (_punctuationHandle == "interrogate") 
                     { 
                         interogatedWord = _interogationService.Interogate(txt);   // TODO add other handlings as implementation of IinterogationService
                     }
 
-                    var interogatedWord_phase1 = _filter1.Filter(interogatedWord);
-                    var interogatedWord_phase2 = _filter2.Filter(interogatedWord_phase1);
-                    var interogatedWord_phase3 = _filter3.Filter(interogatedWord_phase2);
-                    finalTextBuilder.Append(interogatedWord_phase3.CleanedWord);
+                    interogatedWord = _filterSeq1.Filter(interogatedWord);
+
+                    if (interogatedWord.CleanedWord.Length > 0)  // Only run if not filtered out already
+                    {
+                        interogatedWord = _filterSeq2.Filter(interogatedWord);
+                    }
+                    else
+                    {
+                        continue;
+                    }
+
+                    interogatedWord = _filterSeq3.Filter(interogatedWord);
+                    if (interogatedWord.CleanedWord.Length > 0)
+                    {
+
+                        finalTextBuilder.Append(interogatedWord.CleanedWord).Append(" ");
+                        
+                    }                  
                 }
 
                 string finalText = finalTextBuilder.ToString();
-
                 // Write the text to the console.
                 Console.WriteLine(finalText);
             }

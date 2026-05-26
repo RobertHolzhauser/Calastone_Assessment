@@ -16,10 +16,10 @@ namespace TextFilter.Factories
         }
 
         // Create method - returns the filter that matches the filtername that was passed in (aka requested)
-        public ITextFilter Create(string filterName) 
+        public ITextFilter Create(int sequence) 
         {
             var set = _factory();
-            ITextFilter filter = set.Where(x => x.FilterName.ToLower() == filterName.ToLower()).First();
+            ITextFilter filter = set.First(x => x.sequence == sequence);
             return filter;
         }
     }

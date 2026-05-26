@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace TextFilter.Services
 {
-    public class InterogationService : IinterogationService
+    public class InterrogationService : IinterogationService
     {
        
          /***
@@ -15,9 +15,9 @@ namespace TextFilter.Services
          * If so, remove them from the word, and capture them as pre or post
          * Then, if there are non AZaz characters in the middle of the word capture them along with the position
          **/
-        public InterogatedWord Interogate(string word)
+        public InterrogatedWord Interogate(string word)
         {
-            InterogatedWord intWord = new InterogatedWord();
+            InterrogatedWord intWord = new InterrogatedWord();
             intWord.OriginalWord = word;
 
             StringBuilder preStringBuilder = new StringBuilder();

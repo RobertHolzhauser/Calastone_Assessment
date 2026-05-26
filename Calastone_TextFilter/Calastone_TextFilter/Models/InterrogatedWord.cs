@@ -20,11 +20,13 @@ namespace TextFilter.Models
         public string postFix = string.Empty;      // this will be used to re-apply post filtering any trailing non-text chars (punctuation, etc.)
         public List<MidChars> midChars;           // this has any non AZaz chars in the middle of the word, and the position
 
+
         // Original Word Constructor
         public InterrogatedWord(string originalWord) 
         {
             OriginalWord = originalWord;
-            midChars = new List<MidChars>();  
+            midChars = new List<MidChars>();
+            CleanedWord = originalWord;
         }
 
         // default constructor

@@ -6,6 +6,6 @@ namespace TextFilter.Interfaces
 {
     public interface IFilterFactory
     {
-        ITextFilter Create(string filterName);
+        ITextFilter Create(int sequence);
     }
 }
