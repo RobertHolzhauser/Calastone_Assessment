@@ -116,7 +116,7 @@ namespace TextFilter.Tests
         [InlineData("Robert")]
         [InlineData("html")]
         [InlineData("that")]
-       // [InlineData("This")]  -- spec specifies "t"
+       // [InlineData("This")]  -- spec specifies to remove "t" but not "T"
         [InlineData("method")]
         [InlineData("eat")]
         public void Filter3_RemoveWordsWithT(string txt)
